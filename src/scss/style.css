@@ -1,0 +1,133 @@
+.container {
+  max-width: 1310px;
+  margin: 0 auto;
+  padding: 0 25px;
+  box-sizing: border-box;
+}
+
+.panels {
+  padding: 70px 0 140px;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .panels {
+    padding: 24px 0;
+  }
+}
+.panels__title {
+  font-size: clamp(3.6rem, 5.5vw, 4.8rem);
+  margin: 0;
+  padding-bottom: 24px;
+}
+.panels-options {
+  display: flex;
+  grid-gap: 30px;
+  padding: 0 0 164px;
+  margin: 0;
+  list-style-type: none;
+}
+.panels-options-name {
+  display: flex;
+  align-items: center;
+  font-size: clamp(1.8rem, 1vw, 1.9rem);
+  font-weight: 400;
+  margin: 0;
+}
+.panels-options-name svg {
+  margin-right: 12px;
+}
+.panels__list {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+@media (max-width: 767px) {
+  .panels__list {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-bottom: 70px;
+  }
+}
+.panels__item {
+  width: 0;
+  margin: 0;
+  outline: none;
+  transform: translateY(0);
+  transition-duration: 0.6s;
+  z-index: 1;
+}
+.panels__item--active {
+  transform: translateY(-10rem);
+}
+.panels__item--active .panels__info {
+  opacity: 1;
+}
+.panels__item--active::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: 0;
+  z-index: 1;
+  width: 180px;
+  height: 450px;
+}
+.panels__item:not(:first-child) {
+  margin-right: calc(90% / var(--cards-count));
+}
+@media (max-width: 767px) {
+  .panels__item:not(:first-child) {
+    margin-right: 0;
+  }
+}
+@media (hover: hover) {
+  .panels__item:hover, .panels__item:focus {
+    transform: translateY(-10rem);
+  }
+  .panels__item:hover .panels__info, .panels__item:focus .panels__info {
+    opacity: 1;
+  }
+  .panels__item:hover::after, .panels__item:focus::after {
+    content: "";
+    position: absolute;
+    top: 17px;
+    left: 0;
+    z-index: 1;
+    width: 180px;
+    height: 450px;
+  }
+}
+.panels__content {
+  margin: 0;
+  width: 0;
+}
+.panels__info {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  white-space: nowrap;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.panels__info span {
+  margin: 0 12px;
+}
+.panels__img {
+  margin: 0;
+  max-width: 180px;
+  clip-path: polygon(50% -8%, 106% 49%, 51% 108%, -5% 50%);
+}
+.panels .swiper-button-next, .panels .swiper-button-prev {
+  top: 95%;
+}
+.panels .swiper-button-next {
+  right: 38%;
+}
+.panels .swiper-button-prev {
+  left: 38%;
+}
+
+/*# sourceMappingURL=style.css.map */

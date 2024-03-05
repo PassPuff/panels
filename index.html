@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="src/scss/style.css">
+  <title>Materials-panels</title>
+</head>
+<body>
+<svg style="display: none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <symbol id="cutting" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.86942 9.26074L1 14.0432L5.2173 16.9997L9.43461 13.8693" stroke="#7D7D7D" stroke-width="0.5"
+          stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12.7421 13.8693L6.74219 18.0431L11.003 20.9996L21.0028 14.0432L14.1333 9.26074" stroke="#7D7D7D"
+          stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8.82593 6.21727L6.65206 4.04341V1H1" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M20.9982 1H15.3462V4.04341L13.1723 6.21727H10.1289" stroke="#7D7D7D" stroke-width="0.5"
+          stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M2.73909 19.2607H1V20.9998H2.73909V19.2607Z" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M19.257 20.999H20.9961V19.2599H19.257V20.999Z" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M2.73909 7.08691H1V8.826H2.73909V7.08691Z" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M19.257 8.82617H20.9961V7.08708H19.257V8.82617Z" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M15.3469 13.8691H12.7383" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round"
+          stroke-linejoin="round"/>
+    <path d="M9.43217 13.8691H6.21484" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round"
+          stroke-linejoin="round"/>
+    <path d="M9.34609 12.6083L7.47656 11.6953" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14.5219 11.6953L12.6523 12.6083" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M11 9.69629V13.1745" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round"
+          stroke-linejoin="round"/>
+    <path d="M8.82422 6.2168V8.39066L10.4764 9.69498H11.5633L13.172 8.39066V6.2168" stroke="#7D7D7D" stroke-width="0.5"
+          stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="engraving" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 14.4785H17.5217V17.9567H4.47826V14.4785H1" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1 21H21" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round"
+          stroke-linejoin="round"/>
+    <path d="M10.9975 15.3477H7.21484" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round"
+          stroke-linejoin="round"/>
+    <path d="M18.0881 10.8262L15.5664 13.3914" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12.5222 12.7386L10.957 8.95605" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M11.0844 14.304L7.21484 12.6953" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16.2171 8.95605L14.6953 12.6952" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M11.6077 13.3914L9.08594 10.8262" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path
+        d="M13.6092 15.7389C13.9694 15.7389 14.2614 15.4469 14.2614 15.0867C14.2614 14.7266 13.9694 14.4346 13.6092 14.4346C13.249 14.4346 12.957 14.7266 12.957 15.0867C12.957 15.4469 13.249 15.7389 13.6092 15.7389Z"
+        fill="#7D7D7D"/>
+    <path d="M13.6094 13.2615V9.69629" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round"
+          stroke-linejoin="round"/>
+    <path
+        d="M5.12874 12.3043C5.48892 12.3043 5.78091 12.0124 5.78091 11.6522C5.78091 11.292 5.48892 11 5.12874 11C4.76855 11 4.47656 11.292 4.47656 11.6522C4.47656 12.0124 4.76855 12.3043 5.12874 12.3043Z"
+        fill="#7D7D7D"/>
+    <path
+        d="M19.4764 10.1305C19.8366 10.1305 20.1286 9.83852 20.1286 9.47834C20.1286 9.11816 19.8366 8.82617 19.4764 8.82617C19.1162 8.82617 18.8242 9.11816 18.8242 9.47834C18.8242 9.83852 19.1162 10.1305 19.4764 10.1305Z"
+        fill="#7D7D7D"/>
+    <path d="M16.6534 3.17383V5.34772L14.4795 8.39117H12.7403L10.5664 5.34772V3.17383H16.6534Z" stroke="#7D7D7D"
+          stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8.39453 1V3.17389H18.8293V1H14.4815" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.5664 5.34766H12.3055" stroke="#7D7D7D" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<section class="panels">
+  <div class="container  swiper  js-slider-materials-panels  panels__wrapper">
+    <h2 class="panels__title">Materials</h2>
+    <ul class="panels__options  panels-options">
+      <li class="panels-options__item">
+        <h3 class="panels-options-name">
+          <svg width="30" height="30">
+            <use xlink:href="#cutting"></use>
+          </svg>
+          &ndash; cutting
+        </h3>
+      </li>
+      <li class="panels-options__item">
+        <h3 class="panels-options-name">
+          <svg width="30" height="30">
+            <use xlink:href="#engraving"></use>
+          </svg>
+          &ndash; engraving
+        </h3>
+      </li>
+    </ul>
+    <ul class="swiper-wrapper  panels__list">
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Aluminum
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/aluminum.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Bamboo
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/bamboo.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Brass
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/brass.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Carbon Steel
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="https://virmer.com/assets/files/img/mp/cb.webp">
+            <source srcset="">
+            <img class="panels__img" src="public/img/carbon-steel.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Ceramic
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/ceramic-tile.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Copper
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/copper.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">DSP
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/dsp.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Fabric
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/fabric.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">gGranite
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/granite.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Leather
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/leather.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Marble
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/marble.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">MDF
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/mdf.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Paronite
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/paronite.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Plywood
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="">
+            <source srcset="">
+            <img class="panels__img" src="public/img/plywood.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+      <li class="swiper-slide  panels__item">
+        <figure class="panels__content">
+          <figcaption class="panels__info">Plastic
+            <span> <svg width="30" height="30">
+                <use xlink:href="#cutting"></use>
+              </svg></span>
+            &#160;&#47;<span> <svg width="30" height="30">
+                <use xlink:href="#engraving"></use>
+              </svg></span>
+          </figcaption>
+          <picture>
+            <source type="image/webp" srcset="https://virmer.com/assets/files/img/mp/pla.webp">
+            <source srcset="">
+            <img class="panels__img" src="https://virmer.com/assets/files/img/mp/pla.png" loading="lazy" width="180"
+                 height="303">
+          </picture>
+        </figure>
+      </li>
+    </ul>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="src/js/main.js"></script>
+</body>
+</html>
